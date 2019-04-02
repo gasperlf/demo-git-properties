@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>ar.com.macro</groupId>
 	<artifactId>demo-git-properties</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-GA</version>
 	<name>demo-git-properties</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -56,7 +56,17 @@
 					<generateGitPropertiesFile>true</generateGitPropertiesFile>
 					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
 					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-					<format>properties</format>
+					<format>json</format>
+					<gitDescribe>
+						<skip>false</skip>
+						<always>false</always>
+						<dirty>-dirty</dirty>
+					</gitDescribe>
+					<excludeProperties>
+						<excludeProperty>git.commit.user.*</excludeProperty>
+						<excludeProperty>git.build.user.*</excludeProperty>
+						<excludeProperty>git.remote.origin.*</excludeProperty>
+					</excludeProperties>
 				</configuration>
 			</plugin>
 		</plugins>
